@@ -1,4 +1,4 @@
-# scorm-integration
+# scorm
 
 # Using @studiolxd/scorm
 

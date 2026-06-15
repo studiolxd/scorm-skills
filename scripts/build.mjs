@@ -18,9 +18,10 @@ const field = (key) => {
   const line = fm.split('\n').find((l) => l.startsWith(`${key}:`));
   return line ? line.slice(key.length + 1).trim() : '';
 };
-const name = field('name');
+const name = field('name'); // the SKILL name (e.g. "scorm")
 const description = field('description');
 const globs = field('globs');
+const PLUGIN_NAME = 'scorm-skills'; // the PLUGIN/bundle name (matches the repo); may hold 1+ skills
 const VERSION = '1.0.0';
 
 // Concise text for marketplace/plugin surfaces (the frontmatter `description` is the
@@ -43,9 +44,9 @@ write('.claude-plugin/marketplace.json', {
   description: SHORT_DESC,
   owner: { ...AUTHOR, url: 'https://github.com/studiolxd' },
   plugins: [{
-    name,
-    source: `./plugins/${name}`,
-    displayName: 'SCORM Integration',
+    name: PLUGIN_NAME,
+    source: `./plugins/${PLUGIN_NAME}`,
+    displayName: 'SCORM (@studiolxd/scorm)',
     description: SHORT_DESC,
     version: VERSION,
     author: AUTHOR,
@@ -56,8 +57,8 @@ write('.claude-plugin/marketplace.json', {
     category: 'integration',
   }],
 });
-write(`plugins/${name}/.claude-plugin/plugin.json`, {
-  name,
+write(`plugins/${PLUGIN_NAME}/.claude-plugin/plugin.json`, {
+  name: PLUGIN_NAME,
   description: SHORT_DESC,
   version: VERSION,
   author: AUTHOR,
@@ -66,7 +67,7 @@ write(`plugins/${name}/.claude-plugin/plugin.json`, {
   license: 'MIT',
   keywords: KEYWORDS,
 });
-write(`plugins/${name}/skills/${name}/SKILL.md`, `---
+write(`plugins/${PLUGIN_NAME}/skills/${name}/SKILL.md`, `---
 name: ${name}
 description: ${description}
 ---

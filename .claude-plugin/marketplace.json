@@ -8,9 +8,9 @@
   },
   "plugins": [
     {
-      "name": "scorm-integration",
-      "source": "./plugins/scorm-integration",
-      "displayName": "SCORM Integration",
+      "name": "scorm-skills",
+      "source": "./plugins/scorm-skills",
+      "displayName": "SCORM (@studiolxd/scorm)",
       "description": "Teach AI agents to use @studiolxd/scorm — headless SCORM 1.2/2004 runtime (React, Vue, Angular, Svelte, Web Component, vanilla).",
       "version": "1.0.0",
       "author": {

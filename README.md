@@ -14,18 +14,18 @@ Add this repo as a plugin marketplace, then install the skill:
 
 ```
 /plugin marketplace add studiolxd/scorm-skills
-/plugin install scorm-integration@studiolxd-scorm
+/plugin install scorm-skills@studiolxd-scorm
 ```
 
 ### Cursor
 Copy the rule into your project:
 
 ```
-cp cursor/scorm-integration.mdc <your-project>/.cursor/rules/
+cp cursor/scorm.mdc <your-project>/.cursor/rules/
 ```
 
 ### Other agents (Antigravity, Copilot, generic)
-Use the portable baseline `agents/scorm-integration.md` — drop it into your project
+Use the portable baseline `agents/scorm.md` — drop it into your project
 (e.g. append to `AGENTS.md`) or point your tool's rules at it.
 
 ## Layout
@@ -34,9 +34,9 @@ Use the portable baseline `agents/scorm-integration.md` — drop it into your pr
 source/skill.md                       # single source of truth (edit this)
 scripts/build.mjs                     # generator: source → everything below
 .claude-plugin/marketplace.json       # Claude Code marketplace (root = installable)
-plugins/scorm-integration/            # the Claude Code plugin + skill
-cursor/scorm-integration.mdc          # Cursor rule
-agents/scorm-integration.md           # portable baseline
+plugins/scorm-skills/            # the Claude Code plugin + skill
+cursor/scorm.mdc          # Cursor rule
+agents/scorm.md           # portable baseline
 ```
 
 Regenerate after editing the source:
@@ -54,6 +54,11 @@ score range, terminated-session rule, SSR safety).
 
 > Marketplace/plugin manifest schemas evolve — if `/plugin marketplace add` rejects the
 > manifest, check it against the current Claude Code plugin docs.
+
+## Privacy
+
+This plugin is static instruction text — it collects no data and makes no network
+requests. See [PRIVACY.md](./PRIVACY.md).
 
 ## License
 

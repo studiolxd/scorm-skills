@@ -1,5 +1,5 @@
 ---
-name: scorm-integration
+name: scorm
 description: Use when integrating SCORM 1.2/2004 in a web app with @studiolxd/scorm — initializing a session, reading/writing CMI data (score, completion, suspend data, interactions, objectives), handling Result errors, or wiring lifecycle/auto-commit across React, Vue, Angular, Svelte, Web Components, or vanilla JS.
 ---
 

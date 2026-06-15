@@ -1,5 +1,5 @@
 {
-  "name": "scorm-integration",
+  "name": "scorm-skills",
   "description": "Teach AI agents to use @studiolxd/scorm — headless SCORM 1.2/2004 runtime (React, Vue, Angular, Svelte, Web Component, vanilla).",
   "version": "1.0.0",
   "author": {
