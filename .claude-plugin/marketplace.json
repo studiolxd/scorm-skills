@@ -1,15 +1,37 @@
 {
   "name": "studiolxd-scorm",
+  "description": "Teach AI agents to use @studiolxd/scorm — headless SCORM 1.2/2004 runtime (React, Vue, Angular, Svelte, Web Component, vanilla).",
   "owner": {
     "name": "StudioLXD",
+    "email": "hello@studiolxd.com",
     "url": "https://github.com/studiolxd"
   },
   "plugins": [
     {
       "name": "scorm-integration",
       "source": "./plugins/scorm-integration",
-      "description": "Use when integrating SCORM 1.2/2004 in a web app with @studiolxd/scorm — initializing a session, reading/writing CMI data (score, completion, suspend data, interactions, objectives), handling Result errors, or wiring lifecycle/auto-commit across React, Vue, Angular, Svelte, Web Components, or vanilla JS.",
-      "version": "1.0.0"
+      "displayName": "SCORM Integration",
+      "description": "Teach AI agents to use @studiolxd/scorm — headless SCORM 1.2/2004 runtime (React, Vue, Angular, Svelte, Web Component, vanilla).",
+      "version": "1.0.0",
+      "author": {
+        "name": "StudioLXD",
+        "email": "hello@studiolxd.com"
+      },
+      "homepage": "https://github.com/studiolxd/scorm-skills#readme",
+      "repository": "https://github.com/studiolxd/scorm-skills",
+      "license": "MIT",
+      "keywords": [
+        "scorm",
+        "scorm-1-2",
+        "scorm-2004",
+        "lms",
+        "e-learning",
+        "react",
+        "vue",
+        "angular",
+        "svelte"
+      ],
+      "category": "integration"
     }
   ]
 }

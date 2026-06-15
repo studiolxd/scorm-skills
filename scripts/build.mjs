@@ -23,6 +23,13 @@ const description = field('description');
 const globs = field('globs');
 const VERSION = '1.0.0';
 
+// Concise text for marketplace/plugin surfaces (the frontmatter `description` is the
+// long skill-trigger text — too verbose for a marketplace card).
+const SHORT_DESC = 'Teach AI agents to use @studiolxd/scorm — headless SCORM 1.2/2004 runtime (React, Vue, Angular, Svelte, Web Component, vanilla).';
+const REPO = 'https://github.com/studiolxd/scorm-skills';
+const AUTHOR = { name: 'StudioLXD', email: 'hello@studiolxd.com' };
+const KEYWORDS = ['scorm', 'scorm-1-2', 'scorm-2004', 'lms', 'e-learning', 'react', 'vue', 'angular', 'svelte'];
+
 const write = (rel, content) => {
   const out = resolve(root, rel);
   mkdirSync(dirname(out), { recursive: true });
@@ -33,10 +40,32 @@ const write = (rel, content) => {
 // Claude Code marketplace + plugin (root-level so the repo is directly installable).
 write('.claude-plugin/marketplace.json', {
   name: 'studiolxd-scorm',
-  owner: { name: 'StudioLXD', url: 'https://github.com/studiolxd' },
-  plugins: [{ name, source: `./plugins/${name}`, description, version: VERSION }],
+  description: SHORT_DESC,
+  owner: { ...AUTHOR, url: 'https://github.com/studiolxd' },
+  plugins: [{
+    name,
+    source: `./plugins/${name}`,
+    displayName: 'SCORM Integration',
+    description: SHORT_DESC,
+    version: VERSION,
+    author: AUTHOR,
+    homepage: `${REPO}#readme`,
+    repository: REPO,
+    license: 'MIT',
+    keywords: KEYWORDS,
+    category: 'integration',
+  }],
 });
-write(`plugins/${name}/.claude-plugin/plugin.json`, { name, description, version: VERSION });
+write(`plugins/${name}/.claude-plugin/plugin.json`, {
+  name,
+  description: SHORT_DESC,
+  version: VERSION,
+  author: AUTHOR,
+  homepage: `${REPO}#readme`,
+  repository: REPO,
+  license: 'MIT',
+  keywords: KEYWORDS,
+});
 write(`plugins/${name}/skills/${name}/SKILL.md`, `---
 name: ${name}
 description: ${description}
